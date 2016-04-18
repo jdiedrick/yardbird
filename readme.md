@@ -2,6 +2,10 @@
 
 ![yardbird](yardbird.jpg)
 
+[yardbird](http://jdiedrick.github.io/yardbird/experiments/audio_player/)
+
+or
+
 just run
 
 `python -m SimpleHTTPServer `
