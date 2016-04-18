@@ -1,0 +1,32 @@
+<html>
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<audio controls autoplay>
+<source id='audio' src="">
+  <script>
+    $(function(){
+          $.getJSON('https://raw.githubusercontent.com/jdiedrick/satchmo/master/audio_urls.json', function(data) {
+            var numOfRecordings = data['urls'].length
+            
+            var randomIndex = Math.floor(Math.random() * (numOfRecordings));
+            console.log(randomIndex);
+            
+            var audio_url = data['urls'][randomIndex]['url'];
+            console.log(audio_url);
+            
+            $("audio").attr("src",audio_url);
+          });
+    });
+  </script>
+  <script>
+    $('html').click(function() {
+          location.reload();
+        });
+  </script>
+  <script>
+    $('audio').on('ended', function() {
+          location.reload();
+          });
+  </script>
+</audio>
+</html>
