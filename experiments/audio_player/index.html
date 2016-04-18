@@ -4,29 +4,48 @@
 <audio controls autoplay>
 <source id='audio' src="">
   <script>
+
+    //set up some vars
+    var json = "";
+    var json_url = "https://raw.githubusercontent.com/jdiedrick/satchmo/master/audio_urls.json"
+
+    //get initial json
+    getJson();
+
+    //function to get json and save it in json variable
+    function getJson(){
     $(function(){
-          $.getJSON('https://raw.githubusercontent.com/jdiedrick/satchmo/master/audio_urls.json', function(data) {
-            var numOfRecordings = data['urls'].length
+          $.getJSON(json_url, function(data) {
             
-            var randomIndex = Math.floor(Math.random() * (numOfRecordings));
-            console.log(randomIndex);
+            json = data;
+            loadNewRecording();
             
-            var audio_url = data['urls'][randomIndex]['url'];
-            console.log(audio_url);
-            
-            $("audio").attr("src",audio_url);
           });
-    });
-  </script>
-  <script>
-    $('html').click(function() {
-          location.reload();
         });
-  </script>
-  <script>
+      }
+
+    //function to reload a random recording into audio player
+    function loadNewRecording(){
+      var numOfRecordings = json['urls'].length
+            
+      var randomIndex = Math.floor(Math.random() * (numOfRecordings));
+      console.log(randomIndex);
+          
+      var audio_url = json['urls'][randomIndex]['url'];
+      console.log(audio_url);
+          
+      $("audio").attr("src",audio_url);
+    }
+
+    //some event listeners for clicking and when audio ends
+    $('html').click(function() {
+      loadNewRecording();
+    });
+       
     $('audio').on('ended', function() {
-          location.reload();
-          });
+      loadNewRecording();
+    });
+
   </script>
 </audio>
 </html>
