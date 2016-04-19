@@ -16,10 +16,12 @@
     function getJson(){
     $(function(){
           $.getJSON(json_url, function(data) {
-            
             json = data;
+          })
+          .done(function() {
+            console.log( "done loading" );
+            console.log(json['urls'].length)
             loadNewRecording();
-            
           });
         });
       }
