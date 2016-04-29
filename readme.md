@@ -12,6 +12,6 @@ just run
 
 for now and load up the audio player experiment at
 
-`http://0.0.0.0:8000/experiments/audio_player/`
+`http://0.0.0.0:8000/`
 
 enjoy the sounds!!!
