@@ -2,7 +2,7 @@
 
 ![yardbird](yardbird.jpg)
 
-[yardbird](http://jdiedrick.github.io/yardbird/experiments/audio_player/)
+[yardbird](http://jdiedrick.github.io/yardbird)
 
 or
 
